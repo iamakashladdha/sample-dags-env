@@ -10,6 +10,10 @@ Connections
 
 **2. File Connection for Dag: file_sensor_dag_example.py**
 
+Default
 - Connection ID - fs_default
 - Conn Type - fs
 - Extra - {"path": "/usr/local/airflow/include/"}
+
+For GCS
+- Extra - {"path": "/home/airflow/gcs/include/"}
