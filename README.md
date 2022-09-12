@@ -23,28 +23,28 @@ Dags, Variables, Connections and Pools for Creating Sample Airflow Environment
 - apache-airflow-providers-github==2.1.0 for the Dag `extract_github_stars.py`.
 
 **Dags**
-branching_example.py
-cpu_intensive_run_example.py
-deferrable_operator_dag.py
-deferrable_sleep_dag.py
-dependency_dag_example.py
-dynamic_tasks_dag_example.py
-dynamic_tasks_dag_pool_example.py
-dynamic_tasks_mapping_known_values.py
-dynamic_tasks_mapping_mixed_operators.py
-example-dag-advanced.py
-example-dag-basic.py
-example_bash_operator.py
-example_branch_day_of_week_operator.py
-example_branch_operator_dop.py
-example_short_circuit_operator.py
-example_skip_dags.py
-example_sla_dag.py
-example_time_delta_sensor_async.py
-exmaple_nested_branch_dag.py
-extract_github_stars.py
-file_sensor_dag_example.py
-mem_intensive_run_example.py
-pool_dag_example.py
-task_group_dag.py
-xcom_dag_example.py
+- branching_example.py
+- cpu_intensive_run_example.py
+- deferrable_operator_dag.py
+- deferrable_sleep_dag.py
+- dependency_dag_example.py
+- dynamic_tasks_dag_example.py
+- dynamic_tasks_dag_pool_example.py
+- dynamic_tasks_mapping_known_values.py
+- dynamic_tasks_mapping_mixed_operators.py
+- example-dag-advanced.py
+- example-dag-basic.py
+- example_bash_operator.py
+- example_branch_day_of_week_operator.py
+- example_branch_operator_dop.py
+- example_short_circuit_operator.py
+- example_skip_dags.py
+- example_sla_dag.py
+- example_time_delta_sensor_async.py
+- exmaple_nested_branch_dag.py
+- extract_github_stars.py
+- file_sensor_dag_example.py
+- mem_intensive_run_example.py
+- pool_dag_example.py
+- task_group_dag.py
+- xcom_dag_example.py
