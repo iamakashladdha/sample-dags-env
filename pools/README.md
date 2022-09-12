@@ -1,4 +1,5 @@
-**Pools**
+Pools
+========
 
 **default_pool** (For Dags which doesn't explictly specify a pool)
 Slots: 128
