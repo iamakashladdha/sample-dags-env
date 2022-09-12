@@ -27,6 +27,7 @@ def sla_callback(dag, task_list, blocking_task_list, slas, blocking_tis):
     start_date=pendulum.datetime(2021, 1, 1, tz="UTC"),
     catchup=False,
     sla_miss_callback=sla_callback,
+    tags=['example','sla'],
     default_args={'email': "email@example.com"},
 )
 def example_sla_dag():
