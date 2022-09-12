@@ -12,7 +12,7 @@ from airflow.utils.trigger_rule import TriggerRule
 
 
 # Create some placeholder operators
-class EmptySkipOperator(EmptyOperator):
+class EmptySkipOperator(DummyOperator):
     """Empty operator which always skips the task."""
 
     ui_color = '#e8b7e4'
