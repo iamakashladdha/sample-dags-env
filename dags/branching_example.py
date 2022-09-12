@@ -2,7 +2,8 @@ import random
 from datetime import datetime, timedelta
 
 from airflow import DAG
-from airflow.operators.empty import EmptyOperator
+#from airflow.operators.empty import EmptyOperator
+from airflow.operators.dummy import DummyOperator
 from airflow.operators.python import BranchPythonOperator, PythonOperator
 from airflow.utils.edgemodifier import Label
 
@@ -35,7 +36,7 @@ with DAG(dag_id='branching_example',
          ''',
          ) as dag:
 
-    start = EmptyOperator(
+    start = DummyOperator(
         task_id='start',
     )
 
@@ -56,7 +57,7 @@ with DAG(dag_id='branching_example',
         # all_done: all upstream tasks are done with their execution.
     )
 
-    end = EmptyOperator(
+    end = DummyOperator(
         task_id='end',
         trigger_rule='none_failed_min_one_success',  # All upstream tasks have not failed or upstream_failed,
         # and at least one upstream task has succeeded.
@@ -65,7 +66,7 @@ with DAG(dag_id='branching_example',
 
     for option in options:
 
-        empty_follow = EmptyOperator(
+        empty_follow = DummyOperator(
             task_id=option,
         )
 

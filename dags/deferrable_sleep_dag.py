@@ -1,5 +1,6 @@
 from airflow import DAG
-from airflow.operators.empty import EmptyOperator
+#from airflow.operators.empty import EmptyOperator
+from airflow.operators.dummy import DummyOperator
 from datetime import datetime, timedelta
 from airflow.operators.bash import BashOperator
 
@@ -16,7 +17,7 @@ with DAG(dag_id='deferrable_sleep_dag',
          tags=["deferrable", "async"],
          catchup=False) as dag:
 
-    start = EmptyOperator(
+    start = DummyOperator(
         task_id='start')
 
     sleep_task_1 = BashOperator(
@@ -34,7 +35,7 @@ with DAG(dag_id='deferrable_sleep_dag',
         bash_command='sleep 10s'
     )
 
-    finish = EmptyOperator(
+    finish = DummyOperator(
         task_id='finish')
 
     start >> sleep_task_1 >> sleep_task_2 >> sleep_task_3 >> finish

@@ -5,7 +5,8 @@ import pendulum
 
 from airflow import DAG
 from airflow.exceptions import AirflowSkipException
-from airflow.operators.empty import EmptyOperator
+#from airflow.operators.empty import EmptyOperator
+from airflow.operators.dummy import DummyOperator
 from airflow.utils.context import Context
 from airflow.utils.trigger_rule import TriggerRule
 
@@ -28,9 +29,9 @@ def create_test_pipeline(suffix, trigger_rule):
     :param DAG dag_: The DAG to run the operators on
     """
     skip_operator = EmptySkipOperator(task_id=f'skip_operator_{suffix}')
-    always_true = EmptyOperator(task_id=f'always_true_{suffix}')
-    join = EmptyOperator(task_id=trigger_rule, trigger_rule=trigger_rule)
-    final = EmptyOperator(task_id=f'final_{suffix}')
+    always_true = DummyOperator(task_id=f'always_true_{suffix}')
+    join = DummyOperator(task_id=trigger_rule, trigger_rule=trigger_rule)
+    final = DummyOperator(task_id=f'final_{suffix}')
 
     skip_operator >> join
     always_true >> join

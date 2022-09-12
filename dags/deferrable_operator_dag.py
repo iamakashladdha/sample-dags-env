@@ -1,6 +1,7 @@
 from airflow import DAG
 from datetime import timedelta
-from airflow.operators.empty import EmptyOperator
+#from airflow.operators.empty import EmptyOperator
+from airflow.operators.dummy import DummyOperator
 from airflow.utils.timezone import datetime
 
 from astronomer.providers.core.sensors.external_task import ExternalTaskSensorAsync
@@ -20,7 +21,7 @@ with DAG(
     tags=["deferrable", "async"],
 ) as dag:
 
-    start = EmptyOperator(task_id="start")
+    start = DummyOperator(task_id="start")
 
     external_task_async = ExternalTaskSensorAsync(
         task_id="external_task_async",
@@ -28,6 +29,6 @@ with DAG(
         external_dag_id="deferrable_sleep_dag",
     )
 
-    finish = EmptyOperator(task_id="finish")
+    finish = DummyOperator(task_id="finish")
 
     start >> external_task_async >> finish

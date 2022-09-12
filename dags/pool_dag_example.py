@@ -2,7 +2,8 @@ from datetime import datetime
 
 from airflow import DAG
 from airflow.models.baseoperator import chain
-from airflow.operators.empty import EmptyOperator
+#from airflow.operators.empty import EmptyOperator
+from airflow.operators.dummy import DummyOperator
 from airflow.operators.python import PythonOperator
 
 
@@ -30,7 +31,7 @@ with DAG(dag_id='pool_dag_example',
 
     sum2 = PythonOperator(task_id='sum2', python_callable=random_sum, pool='pool_example')
 
-    complete = EmptyOperator(
+    complete = DummyOperator(
         task_id='complete',
         pool='default_pool',  # If a task is not given a pool, it is assigned to default_pool (128 slots).
     )

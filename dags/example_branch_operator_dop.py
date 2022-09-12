@@ -6,7 +6,8 @@ import pendulum
 
 from airflow import DAG
 from airflow.decorators import task
-from airflow.operators.empty import EmptyOperator
+#from airflow.operators.empty import EmptyOperator
+from airflow.operators.dummy import DummyOperator
 
 
 @task.branch()
@@ -36,6 +37,6 @@ with DAG(
     cond = should_run()
 
 
-    empty_task_1 = EmptyOperator(task_id='empty_task_1')
-    empty_task_2 = EmptyOperator(task_id='empty_task_2')
+    empty_task_1 = DummyOperator(task_id='empty_task_1')
+    empty_task_2 = DummyOperator(task_id='empty_task_2')
     cond >> [empty_task_1, empty_task_2]
