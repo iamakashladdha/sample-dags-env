@@ -25,6 +25,7 @@ with DAG(dag_id='pool_dag_example',
              This DAG demonstrates pools which allow you to limit parallelism
              for an arbitrary set ot tasks.
          ''',
+         catchup=False
          ) as dag:
 
     sum1 = PythonOperator(task_id='sum1', python_callable=random_sum, pool='pool_example')  # pool_2 is set to 1
