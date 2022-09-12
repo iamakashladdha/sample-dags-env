@@ -15,7 +15,7 @@ default_args = {
 }
 
 def _downloading_data(my_param):
-    with open('/usr/local/airflow/include/hello.txt','w') as f:
+    with open('hello.txt','w') as f:
         data_for_file_var= Variable.get("data_for_file_var")
         print(data_for_file_var)
         f.write(data_for_file_var)
